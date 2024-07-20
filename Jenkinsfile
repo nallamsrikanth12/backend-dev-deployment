@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh """
                 cd terraform
-                cd terraform init -reconfigure
+                terraform init -reconfigure
                 """
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh """
                     cd terraform
-                    cd terraform plan -var="${params.appversion}"
+                    terraform plan -var="${params.appversion}"
                 """
             }
         }
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 sh """
                  cd terraform
-                 cd terraform apply -auto-approve -var="${params.appversion}"
+                 terraform apply -auto-approve -var="${params.appversion}"
                 """
             }
         }
